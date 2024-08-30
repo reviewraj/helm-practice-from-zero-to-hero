@@ -13,13 +13,13 @@ spec:
       {{- include "nginx.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      argocd-image-updater.argoproj.io/image-list: "nginx=nagaraju7876482/nginx:1.10.1"
-      argocd-image-updater.argoproj.io/nginx.update-strategy: "latest"
-      argocd-image-updater.argoproj.io/write-back-method: "git"
-      {{- with .Values.podAnnotations }}
       annotations:
+        argocd-image-updater.argoproj.io/image-list: "nginx={{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        argocd-image-updater.argoproj.io/nginx.update-strategy: "latest"
+        argocd-image-updater.argoproj.io/write-back-method: "git"
+        {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
-      {{- end }}
+        {{- end }}
       labels:
         {{- include "nginx.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
