@@ -5,14 +5,14 @@
 replicaCount: 3
 
 image:
-  repository: nginx
+  repository: nagaraju7876482/nginx
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "1.10.5"
 
 imagePullSecrets: []
 nameOverride: ""
-fullnameOverride: "nginx-dev-env"
+fullnameOverride: "nginx-prod-env"
 
 serviceAccount:
   # Specifies whether a service account should be created
