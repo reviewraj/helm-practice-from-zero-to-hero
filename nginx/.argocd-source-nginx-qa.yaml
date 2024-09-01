@@ -1,7 +1,7 @@
 helm:
   parameters:
   - name: image.tag
-    value: 1.10.7
+    value: "1.2"
     forcestring: true
   - name: image.name
     value: nagaraju7876482/nginx
