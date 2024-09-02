@@ -5,7 +5,7 @@
 replicaCount: 2
 
 image:
-  repository: nagaraju7876482/real-chat
+  repository: nagaraju7876482/nginx
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "1.10.1"
