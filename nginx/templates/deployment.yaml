@@ -17,6 +17,9 @@ spec:
         argocd-image-updater.argoproj.io/image-list: "nginx={{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         argocd-image-updater.argoproj.io/nginx.update-strategy: "latest"
         argocd-image-updater.argoproj.io/write-back-method: "git"
+        prometheus.io/scrape: 'true'
+        prometheus.io/path: '/metrics'
+        prometheus.io/port: '8080'
         {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
